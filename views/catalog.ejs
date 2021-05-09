@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %> 
+    <title><% title %> </title>
+</head>
+<body>
+    <%- include('./partials/navbar') %> 
+    <main>
+        <div id="catalog">
+            <% for(let i = 0;i<books.length;i++) {%> 
+            <div class="card m-1" style="width: 18rem;">
+                <div class="imgBlock" style="background-image: url(/images/<%- books[i].image %>);">
+                   
+                </div> 
+                <div class="card-body">
+                    <h5 class="card-title"><%- books[i].name %> </h5>
+                    <p class="card-text">
+                        Автор: <%- books[i].author  %> <br>
+                        Год издания: <%- books[i].year  %> <br>
+                        Наличие: <% if(books[i].available) {%>в наличии<% }else{ %>нет в наличии<% } %>    
+                    </p>
+                    <a href="#" class="btn btn-warning">Подробней/взять</a>
+                </div>
+            </div>
+            <% } %> 
+        </div>
+        
+    </main>
+</body>
+</html>
