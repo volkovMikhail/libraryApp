@@ -7,4 +7,5 @@ const client = new MongoClient(
     }
 );
 client.connect();
+
 module.exports = client;
