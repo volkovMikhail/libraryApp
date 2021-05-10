@@ -18,4 +18,9 @@ router.get('/catalog', catalog)
 
 router.get('/api/books',getAllBooks)
 
+router.get('/reg',(req,res)=>{
+    res.render('reg',{active:'registration'});
+})
+
+
 module.exports = router;

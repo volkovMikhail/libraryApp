@@ -30,3 +30,12 @@ main {
 .imgBlock:hover{
     transform: scale(1.2);
 }
+
+.regContainer{
+    margin-top: 30px;
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

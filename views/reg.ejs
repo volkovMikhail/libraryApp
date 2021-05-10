@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head') %>
+        <title>Регистрация</title>
+    </head>
+    <body>
+        <%- include('./partials/navbar') %>
+        <main>
+            <div class="regContainer">
+                <form action="/sendreg" method="POST">
+                    <div class="form-row">
+                        <div class="col mb-3">
+                            <label for="nameInput">Имя</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nameInput"
+                                name="name"
+                                placeholder="Имя"
+                                required
+                            />
+                        </div>
+                        <div class="col mb-3">
+                            <label for="lastnameInput">Фамилия</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="lastnameInput"
+                                placeholder="Фамилия"
+                                name="lastname"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneInput">Номера телефона</label>
+                        <input
+                            type="tel"
+                            class="form-control"
+                            id="phoneInput"
+                            placeholder="Телефон"
+                            name="phone"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="emailInput">Эл. почта</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="emailInput"
+                            aria-describedby="emailHelp"
+                            placeholder="Электронная почта"
+                            name="email"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordInput">Пароль</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="passwordInput"
+                            placeholder="Пароль"
+                            name="password"
+                            required
+                        />
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="confirmInput"
+                            >Подтвердите пароль</label
+                        >
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="confirmInput"
+                            placeholder="Подтвердите пароль"
+                            required
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Зарегистрироваться
+                    </button>
+                </form>
+            </div>
+        </main>
+        <script src="/js/registration.js"></script>
+    </body>
+</html>

@@ -32,7 +32,7 @@ class Filter{
     
                         </div> 
                         <div class="card-body">
-                            <h5 class="card-title">${item.name}</h5>
+                            <h5 class="card-title text-truncate">${item.name}</h5>
                             <p class="card-text">
                                 Автор: ${item.author} <br>
                                 Год издания: ${item.year} <br>
