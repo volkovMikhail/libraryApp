@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('./partials/head') %> 
-    <title>Личный кабинет</title>
-</head>
-<body>
-    <%- include('./partials/navbar') %> 
-    <h1>
-        <%= ses %> 
-    </h1>
-</body>
+    <head>
+        <%- include('./partials/head') %>
+        <title>Личный кабинет</title>
+    </head>
+    <body>
+        <%- include('./partials/navbar') %>
+        <main style="width: 1225px">
+            <div class="mainContainer">
+                <div class="userData">
+                    <div class="card mt-3 mr-3" style="width: 18rem">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%- user.name %> <%- user.lastname %>
+                            </h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><%- user.email %></li>
+                            <li class="list-group-item"><%- user.phone %></li>
+                            <li class="list-group-item">
+                                Дата регистрации: <br />
+                                <%- user.regDate %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="userBooks">
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">Книга</th>
+                                <th scope="col">Дата взятия</th>
+                                <th scope="col">Вернуть</th>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            <% for(let i = 0; i < books.length ;i++){ %> 
+                            <tr>
+                                <td>
+                                    <%= books[i].book.name %>
+                                </td>
+                                <td>
+                                    <%= books[i].orderDate %>  
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning" onclick="window.location='user/book/delete/<%= books[i].book._id %>'">
+                                        Вернуть
+                                    </button>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </body>
 </html>

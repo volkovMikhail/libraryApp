@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head') %>
+        <title><%- book.name %></title>
+    </head>
+    <body>
+        <%- include('./partials/navbar') %>
+        <main style="width: 1225px">
+            <div class="mainContainer">
+                <div style="width: 350px">
+                    <img
+                        src="/images/<%- book.image %>"
+                        alt="..."
+                        class="img-thumbnail mt-3"
+                    />
+                </div>
+                <div style="width: 100%">
+                    <div class="card mt-3 ml-3" style="width: 100%">
+                        <div class="card-body">
+                            <h4 class="card-title"><%- book.name %></h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                Автор: <%- book.author %> <br />
+                                Год издания: <%- book.year %> <br />
+                                <% if(book.available){ %>
+                                <span class="text-success">В наличии</span>
+                                <% }else{ %>
+                                <span class="text-danger">Нет в наличии</span>
+                                <% } %>
+                            </li>
+                            <li class="list-group-item">
+                                <h6>Описание:</h6>
+                                <br /><%- book.discription %>
+                            </li>
+                            <li class="list-group-item">
+                                <form action="/book/<%- book._id %>" method="POST">
+                                    <button type="submit" class="btn btn-warning">
+                                        Взять почитать
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

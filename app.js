@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 
 app.use(
     session({
-        secret: '777',
+        secret: '1337',
         resave: false,
         saveUninitialized: true,
     })

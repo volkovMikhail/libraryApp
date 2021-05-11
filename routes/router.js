@@ -4,8 +4,18 @@ const catalog = require('../controllers/catalogController');
 const getAllBooks = require('../controllers/getAllBooks');
 const regContorller = require('../controllers/registrationController');
 const loginController = require('../controllers/loginController');
-const userController = require('../controllers/userController')
+const userController = require('../controllers/userController');
+const getBook = require('../controllers/getBook');
+const addBook = require('../controllers/addBook');
 
+//post
+router.post('/sendreg', regContorller);
+
+router.post('/signin', loginController);
+
+router.post('/book/:id',addBook);
+
+//get
 router.get('/', (req, res) => {
     res.render('index', {
         title: 'Библиотечный фонд | главная',
@@ -20,15 +30,15 @@ router.get('/catalog', catalog);
 router.get('/api/books', getAllBooks);
 
 router.get('/reg', (req, res) => {
-    res.render('reg', { active: 'registration'});
+    res.render('reg', { active: 'registration' });
 });
 
 router.get('/login', (req, res) => {
     res.render('login', { active: 'login' });
 });
 
-router.post('/sendreg', regContorller);
+router.get('/book/:id', getBook);
 
-router.post('/signin', loginController);
+//TODO router.get('/user/book/delete/:id', deleteBook);
 
 module.exports = router;

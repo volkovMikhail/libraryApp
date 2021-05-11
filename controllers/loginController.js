@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
             active: 'login',
         });
     } else {
-        req.session.userid = user[0]._id;
+        req.session.email = user[0].email;
         res.redirect('/user');
     }
 };
