@@ -7,7 +7,7 @@ const loginController = require('../controllers/loginController');
 const userController = require('../controllers/userController');
 const getBook = require('../controllers/getBook');
 const addBook = require('../controllers/addBook');
-
+const deleteBook = require('../controllers/deleteBook')
 //post
 router.post('/sendreg', regContorller);
 
@@ -39,6 +39,6 @@ router.get('/login', (req, res) => {
 
 router.get('/book/:id', getBook);
 
-//TODO router.get('/user/book/delete/:id', deleteBook);
+router.get('/user/book/delete/:id', deleteBook);
 
 module.exports = router;

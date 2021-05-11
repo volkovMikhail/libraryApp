@@ -18,6 +18,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'static')));
 app.use(router);
+app.get('*', (req, res)=>{
+    res.render('message', {
+        title: '404',
+        color: 'text-dark',
+        status: '404 Not found',
+        active: 'Error',
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`server started on port: ${PORT}...`);
