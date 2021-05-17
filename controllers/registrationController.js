@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
             status: 'Успех! Регистрация завершена!',
             color: 'text-success',
             active: 'registration',
+            session: req.session.email
         });
         Users.insertOne(user);
     } else {
@@ -21,6 +22,7 @@ module.exports = async (req, res) => {
             status: 'Данный Email уже используется.',
             color: 'text-danger',
             active: 'registration',
+            session: req.session.email
         });
     }
 };

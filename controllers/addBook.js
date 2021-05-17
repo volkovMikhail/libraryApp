@@ -11,6 +11,7 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: 'Приносим извинения, книги нет в наличии',
             active: 'book',
+            session: req.session.email
         });
         return;
     }
@@ -37,6 +38,7 @@ module.exports = async (req, res) => {
                 color: 'text-dark',
                 status: '404 Книга не найдена',
                 active: 'book',
+                session: req.session.email
             });
             return;
         }

@@ -8,6 +8,7 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: '404',
             active: 'login',
+            session: req.session.email
         });
     } else {
         let user = await Users.findOne({email:req.session.email});

@@ -7,5 +7,6 @@ module.exports = async (req, res) => {
         title: 'Каталог',
         active: 'catalog',
         books: books,
+        session: req.session.email
     });
 };

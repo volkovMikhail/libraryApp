@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: '404 Книга не найдена',
             active: 'book',
+            session: req.session.email
         });
         return;
     }
@@ -21,11 +22,13 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: '404 Книга не найдена',
             active: 'book',
+            session: req.session.email
         });
     }else{
         res.render('book', {
             active: 'book',
             book: book[0],
+            session: req.session.email
         });
     }
 };

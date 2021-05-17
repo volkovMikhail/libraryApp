@@ -10,6 +10,7 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: 'Вам необходимо войти в учётную запись',
             active: 'login',
+            session: req.session.email
         });
     } else {
         let user;
@@ -27,6 +28,7 @@ module.exports = async (req, res) => {
                 active: 'user',
                 user: user[0],
                 books: books,
+                session: req.session.email
             });
         } catch (error) {
             res.render('message', {
@@ -34,6 +36,7 @@ module.exports = async (req, res) => {
                 color: 'text-dark',
                 status: 'Вам необходимо войти в учётную запись',
                 active: 'login',
+                session: req.session.email
             });
             return;
         }
