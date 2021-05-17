@@ -52,3 +52,30 @@ main {
 .userBooks{
     width: 100%;
 }
+
+.title>h1{
+    z-index: 5;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 10%;
+    font-size: 60px;
+}
+
+.title{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 720px;
+}
+
+.parallax{
+    background: url(../images/bgmain.jpg);
+    position: absolute;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 115%;
+    height: 115%;
+    transition: all 0.1s ease;
+    z-index: 1;  
+}

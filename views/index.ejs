@@ -6,8 +6,22 @@
     </head>
     <body>
         <%- include('./partials/navbar') %> 
-        <div class="container">
-            <h1>MAIN</h1>
+        <div class="title">
+            <h1 class="text-white">Библиотечный фонд</h1>
+            <div class="parallax"></div>
         </div>
+        <div class="container mt-5 mb-5">
+            <h3>Этот сайт предназначен для отслеживания
+                 деятельности библиотеки, пользователи 
+                 выбирают книги и добавляют в свой 
+                 личный кабинет. Администратор может отслеживать 
+                 у кого какая книга и когда он её взял.</h3>
+        </div>
+        <form action="/reg" method="GET">
+            <div class="justify-center container mb-5">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Зарегистрироваться</button>
+            </div>
+        </form>
+        <script src="/js/main.js"></script>
     </body>
 </html>

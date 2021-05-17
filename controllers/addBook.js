@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
                     },
                 }
             );
-            res.redirect('/catalog');
+            res.redirect('/user');
             return;
         } catch (error) {
             res.render('message', {
