@@ -1,11 +1,23 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#">Книги</a>
+        <a
+            class="nav-link <% if(tabpage === 'books') { %>active<% } %>"
+            href="/admin/books"
+            >Книги</a
+        >
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Пользователи</a>
+        <a
+            class="nav-link <% if(tabpage === 'users') { %>active<% } %>"
+            href="/admin/users"
+            >Пользователи</a
+        >
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Добавить книгу</a>
+        <a
+            class="nav-link <% if(tabpage === 'addbook') { %>active<% } %>"
+            href="/admin/addbook"
+            >Добавить книгу</a
+        >
     </li>
 </ul>

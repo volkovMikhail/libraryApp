@@ -4,9 +4,12 @@ const admin = require('../models/admin');
 
 module.exports = (req, res) => {
     if (req.session.email === admin.email) {
-        res.render('admin',{
-                active: 'user',
-                session: req.session.email,
-            });
+        res.render('adminUsers', {
+            tabpage: 'users',
+            active: 'user',
+            session: req.session.email,
+        });
+    } else {
+        res.redirect('/');
     }
 };

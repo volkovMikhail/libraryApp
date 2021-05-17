@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     const Users = mongo.db("library").collection("Users");
     const Books = mongo.db("library").collection("Books");
     if (admin.email === req.session.email) {
-        res.redirect('/admin');
+        res.redirect('/admin/books');
     } else {
         if (req.session.email == undefined) {
             res.redirect("/login");

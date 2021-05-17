@@ -11,7 +11,9 @@ const deleteBook = require('../controllers/deleteBook');
 const logoutController = require('../controllers/logoutController');
 const loginController = require('../controllers/loginController');
 const regController = require('../controllers/regController');
-const adminController = require('../controllers/adminController');
+const adminBooksController = require('../controllers/adminBooksController');
+const adminUsersController = require('../controllers/adminUsersController');
+const adminAddBookController = require('../controllers/adminAddBooksController');
 
 //post
 router.post('/sendreg', regContorller);
@@ -45,6 +47,10 @@ router.get('/user/book/delete/:id', deleteBook);
 
 router.get('/logout', logoutController);
 
-router.get('/admin', adminController);
+router.get('/admin/books', adminBooksController);
+
+router.get('/admin/users', adminUsersController);
+
+router.get('/admin/addbook', adminAddBookController);
 
 module.exports = router;
