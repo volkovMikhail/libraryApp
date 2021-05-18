@@ -57,14 +57,6 @@ main {
     }
 }
 
-.userData{
-    width: 300px;
-}
-
-.userBooks{
-    width: 100%;
-}
-
 .title>h1{
     z-index: 5;
     position: absolute;

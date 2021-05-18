@@ -38,8 +38,6 @@ router.get('/user', userController);
 
 router.get('/catalog', catalog);
 
-router.get('/api/books', getAllBooks);
-
 router.get('/reg', regController);
 
 router.get('/login', loginController);
@@ -56,4 +54,19 @@ router.get('/admin/users', adminUsersController);
 
 router.get('/admin/addbook', adminAddBookController);
 
+router.get('/user/:id')//TODO for admin
+
+//api
+router.get('/api/books', getAllBooks);
+
+router.get('/api/users'); //TODO
+
+router.delete('/book/:id'); //TODO
+
 module.exports = router;
+
+
+/* TODO сделать "КНИГИ" где можно просматривать книги и у кого они на руках
+
+    сделать "пользователи" для просмотра всех пользователей и какие книги у них есть
+*/

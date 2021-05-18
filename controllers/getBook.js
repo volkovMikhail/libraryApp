@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: '404 Книга не найдена',
             active: 'book',
-            session: req.session.email
+            session: req.session.email,
         });
         return;
     }
@@ -22,13 +22,22 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: '404 Книга не найдена',
             active: 'book',
-            session: req.session.email
+            session: req.session.email,
         });
-    }else{
+    } else {
+        const newPopularity = parseInt(book[0].popularity, 10) + 1;
+        Books.updateOne(
+            { _id: ObjectID(req.params.id) },
+            {
+                $set: {
+                    popularity: newPopularity,
+                },
+            }
+        );
         res.render('book', {
             active: 'book',
             book: book[0],
-            session: req.session.email
+            session: req.session.email,
         });
     }
 };

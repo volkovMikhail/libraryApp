@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
             color: 'text-dark',
             status: 'Приносим извинения, книги нет в наличии',
             active: 'book',
-            session: req.session.email
+            session: req.session.email,
         });
         return;
     }
@@ -19,6 +19,15 @@ module.exports = async (req, res) => {
         res.redirect('/login');
     } else {
         try {
+            const newPopularity = parseInt(book.popularity,10)  + 10;
+            Books.updateOne(
+                { _id: ObjectID(req.params.id) },
+                {
+                    $set: {
+                        popularity: newPopularity,
+                    },
+                }
+            );
             User.updateOne(
                 { email: req.session.email },
                 {
@@ -33,12 +42,13 @@ module.exports = async (req, res) => {
             res.redirect('/user');
             return;
         } catch (error) {
+            console.log(error);
             res.render('message', {
                 title: 'Книга',
                 color: 'text-dark',
                 status: '404 Книга не найдена',
                 active: 'book',
-                session: req.session.email
+                session: req.session.email,
             });
             return;
         }
