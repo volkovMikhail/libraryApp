@@ -14,6 +14,7 @@ const regController = require('../controllers/regController');
 const adminBooksController = require('../controllers/adminBooksController');
 const adminUsersController = require('../controllers/adminUsersController');
 const adminAddBookController = require('../controllers/adminAddBooksController');
+const adminAddBook = require('../controllers/adminAddBook');
 
 //post
 router.post('/sendreg', regContorller);
@@ -21,6 +22,8 @@ router.post('/sendreg', regContorller);
 router.post('/signin', signinController);
 
 router.post('/book/:id', addBook);
+
+router.post('/admin/addbook', adminAddBook);
 
 //get
 router.get('/', (req, res) => {

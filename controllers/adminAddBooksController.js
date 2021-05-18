@@ -7,6 +7,7 @@ module.exports = (req, res) => {
         res.render('adminAddBook', {
             tabpage: 'addbook',
             active: 'user',
+            formProcessed: false,
             session: req.session.email,
         });
     } else {

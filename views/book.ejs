@@ -6,16 +6,16 @@
     </head>
     <body>
         <%- include('./partials/navbar') %>
-        <main style="width: 1225px">
+        <main style="max-width: 1225px">
             <div class="mainContainer">
-                <div style="width: 350px">
+                <div style="width: 350px" class="ml-2">
                     <img
                         src="/images/<%- book.image %>"
                         alt="..."
                         class="img-thumbnail mt-3"
                     />
                 </div>
-                <div style="width: 100%">
+                <div style="width: 95%" class="mr-4 mb-4">
                     <div class="card mt-3 ml-3" style="width: 100%">
                         <div class="card-body">
                             <h4 class="card-title"><%- book.name %></h4>
