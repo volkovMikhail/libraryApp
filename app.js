@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         cb(
             null,
-            new Date().getTime().toString() + path.extname(file.originalname)
+            new Date().getTime().toString() + Math.floor(Math.random() * 1000).toString() + path.extname(file.originalname)
         ); //Appending extension
     },
 });

@@ -15,6 +15,8 @@ const adminBooksController = require('../controllers/adminBooksController');
 const adminUsersController = require('../controllers/adminUsersController');
 const adminAddBookController = require('../controllers/adminAddBooksController');
 const adminAddBook = require('../controllers/adminAddBook');
+const getAllUsers = require('../controllers/getAllUsers');
+const adminDeleteBook = require('../controllers/adminDeleteBook');
 
 //post
 router.post('/sendreg', regContorller);
@@ -54,17 +56,17 @@ router.get('/admin/users', adminUsersController);
 
 router.get('/admin/addbook', adminAddBookController);
 
-router.get('/user/:id')//TODO for admin
+router.get('/user/:id'); //TODO for admin
+
+router.get('/delete/book/:id', adminDeleteBook);
 
 //api
 router.get('/api/books', getAllBooks);
 
-router.get('/api/users'); //TODO
+router.get('/api/users', getAllUsers);
 
-router.delete('/book/:id'); //TODO
 
 module.exports = router;
-
 
 /* TODO сделать "КНИГИ" где можно просматривать книги и у кого они на руках
 
