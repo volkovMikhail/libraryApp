@@ -35,8 +35,15 @@
                                 <br /><%- book.discription %>
                             </li>
                             <li class="list-group-item">
-                                <form action="/book/<%- book._id %>" method="POST">
-                                    <button type="submit" class="btn btn-warning">
+                                <form
+                                    action="/book/<%- book._id %>"
+                                    method="POST"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="btn btn-warning"
+                                        <% if(isAdmin){ %>disabled<% } %>  
+                                    >
                                         Взять почитать
                                     </button>
                                 </form>
@@ -45,6 +52,35 @@
                     </div>
                 </div>
             </div>
+            <% if(users.length != 0) {%>
+            <div class="container mt-5">
+                <h3>Эта книга на руках у пользователей:</h3>
+            </div>
+            <table class="table mb-5">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Номер</th>
+                        <th scope="col">Дата взятия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i = 0; i < users.length ;i++){ %>
+                    <tr>
+                        <td style="font-size: small">
+                            <a href="/user/<%- users[i]._id %> "
+                                ><%- users[i]._id %></a
+                            >
+                        </td>
+                        <td><%- users[i].name %></td>
+                        <td><%- users[i].phone %></td>
+                        <td><%- users[i].orderDate %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <% } %>
         </main>
     </body>
 </html>

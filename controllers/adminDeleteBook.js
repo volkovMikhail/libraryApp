@@ -2,7 +2,7 @@ const mongo = require('../models/db');
 const admin = require('../models/admin');
 const { ObjectID } = require('bson');
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
     if (req.session.email === admin.email) {
         const Books = mongo.db('library').collection('Books');
         try {

@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
                     $push: {
                         books: {
                             id: ObjectID(req.params.id),
+                            name: book.name,
                             orderDate: new Date().toLocaleDateString(),
                         },
                     },

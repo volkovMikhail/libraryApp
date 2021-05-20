@@ -17,6 +17,7 @@ const adminAddBookController = require('../controllers/adminAddBooksController')
 const adminAddBook = require('../controllers/adminAddBook');
 const getAllUsers = require('../controllers/getAllUsers');
 const adminDeleteBook = require('../controllers/adminDeleteBook');
+const getUserById = require('../controllers/getUserById');
 
 //post
 router.post('/sendreg', regContorller);
@@ -56,7 +57,7 @@ router.get('/admin/users', adminUsersController);
 
 router.get('/admin/addbook', adminAddBookController);
 
-router.get('/user/:id'); //TODO for admin
+router.get('/user/:id', getUserById);
 
 router.get('/delete/book/:id', adminDeleteBook);
 
@@ -65,10 +66,5 @@ router.get('/api/books', getAllBooks);
 
 router.get('/api/users', getAllUsers);
 
-
 module.exports = router;
 
-/* TODO сделать "КНИГИ" где можно просматривать книги и у кого они на руках
-
-    сделать "пользователи" для просмотра всех пользователей и какие книги у них есть
-*/

@@ -8,7 +8,7 @@
         <%- include('./partials/navbar') %>
         <main style="max-width: 1225px">
             <div class="mainContainer">
-                <div class="userData ml-2" style="width: 300px;">
+                <div class="userData ml-2" style="width: 300px">
                     <div class="card mt-3 mr-3" style="width: 18rem">
                         <div class="card-body">
                             <h5 class="card-title">
@@ -25,30 +25,35 @@
                         </ul>
                     </div>
                 </div>
-                <div class="userBooks" style="width: 100%;">
+                <div class="userBooks" style="width: 100%">
                     <table class="table mt-3">
                         <thead>
                             <tr>
                                 <th scope="col">Книга</th>
                                 <th scope="col">Дата взятия</th>
+                                <% if(!isAdmin) {%>
                                 <th scope="col">Вернуть</th>
+                                <% } %>
                             </tr>
                         </thead>
-                        <tbody> 
-                            <% for(let i = 0; i < books.length ;i++){ %> 
+                        <tbody>
+                            <% if(user.books != undefined) {%> 
+                            <% for(let i = 0; i < user.books.length ;i++){ %>
                             <tr>
+                                <td><%= user.books[i].name %></td>
+                                <td><%= user.books[i].orderDate %></td>
+                                <% if(!isAdmin) {%>
                                 <td>
-                                    <%= books[i].book.name %>
-                                </td>
-                                <td>
-                                    <%= books[i].orderDate %>  
-                                </td>
-                                <td>
-                                    <button class="btn btn-warning" onclick="window.location='user/book/delete/<%= books[i].book._id %>'">
+                                    <button
+                                        class="btn btn-warning"
+                                        onclick="window.location='user/book/delete/<%= user.books[i].id %>'"
+                                    >
                                         Вернуть
                                     </button>
                                 </td>
+                                <% } %>
                             </tr>
+                            <% } %> 
                             <% } %>
                         </tbody>
                     </table>
