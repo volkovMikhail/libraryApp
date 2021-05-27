@@ -9,11 +9,7 @@
         <main style="max-width: 1225px">
             <div class="mainContainer">
                 <div style="width: 350px" class="ml-2">
-                    <img
-                        src="/images/<%- book.image %>"
-                        alt="..."
-                        class="img-thumbnail mt-3"
-                    />
+                    <img src="/images/<%- book.image %>" alt="..." class="img-thumbnail mt-3" />
                 </div>
                 <div style="width: 95%" class="mr-4 mb-4">
                     <div class="card mt-3 ml-3" style="width: 100%">
@@ -28,6 +24,13 @@
                                 <span class="text-success">В наличии</span>
                                 <% }else{ %>
                                 <span class="text-danger">Нет в наличии</span>
+                                <% } %> <% if(isAdmin){ %>
+                                <button
+                                    class="ml-3 btn btn-secondary"
+                                    onclick="location = '/book/setavaiable/<%- book._id%>'"
+                                >
+                                    В наличии / Нет в наличии
+                                </button>
                                 <% } %>
                             </li>
                             <li class="list-group-item">
@@ -35,16 +38,9 @@
                                 <br /><%- book.discription %>
                             </li>
                             <li class="list-group-item">
-                                <form
-                                    action="/book/<%- book._id %>"
-                                    method="POST"
-                                >
-                                    <button
-                                        type="submit"
-                                        class="btn btn-warning"
-                                        <% if(isAdmin){ %>disabled<% } %>  
-                                    >
-                                        Взять почитать
+                                <form action="/book/<%- book._id %>" method="POST">
+                                    <button type="submit" class="btn btn-warning" <% if(isAdmin){ %>
+                                        disabled<% } %> > Взять почитать
                                     </button>
                                 </form>
                             </li>
@@ -69,9 +65,7 @@
                     <% for(let i = 0; i < users.length ;i++){ %>
                     <tr>
                         <td style="font-size: small">
-                            <a href="/user/<%- users[i]._id %> "
-                                ><%- users[i]._id %></a
-                            >
+                            <a href="/user/<%- users[i]._id %> "><%- users[i]._id %></a>
                         </td>
                         <td><%- users[i].name %></td>
                         <td><%- users[i].phone %></td>

@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const { Router, request } = require('express');
 const router = Router();
 const catalog = require('../controllers/catalogController');
 const getAllBooks = require('../controllers/getAllBooks');
@@ -18,6 +18,7 @@ const adminAddBook = require('../controllers/adminAddBook');
 const getAllUsers = require('../controllers/getAllUsers');
 const adminDeleteBook = require('../controllers/adminDeleteBook');
 const getUserById = require('../controllers/getUserById');
+const setAvailable = require('../controllers/setAvailable');
 
 //post
 router.post('/sendreg', regContorller);
@@ -60,6 +61,8 @@ router.get('/admin/addbook', adminAddBookController);
 router.get('/user/:id', getUserById);
 
 router.get('/delete/book/:id', adminDeleteBook);
+
+router.get('/book/setavaiable/:id',setAvailable);
 
 //api
 router.get('/api/books', getAllBooks);
