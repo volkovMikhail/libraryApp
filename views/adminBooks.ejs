@@ -7,6 +7,18 @@
     <body>
         <%- include('./partials/navbar') %> <%-
         include('./partials/adminHeader') %>
+        <div class="alert alert-warning m-3 p-3">
+            <div class="form-col m-2">
+                <div class="form-row">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Поиск по названию"
+                        id="nameSearch"
+                    />
+                </div>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -15,27 +27,10 @@
                     <th scope="col">Действие</th>
                 </tr>
             </thead>
-            <tbody>
-                <% for(let i = 0; i < books.length ;i++){ %>
-                <tr>
-                    <td style="font-size: small"><%- books[i]._id %></td>
-                    <td>
-                        <a href="/book/<%- books[i]._id %>"><%- books[i].name %></a>
-                    </td>
-                    <td class="form-inline">
-                        <form
-                            class="m-1"
-                            action="/delete/book/<%- books[i]._id %>"
-                            method="GET"
-                        >
-                            <button class="btn btn-danger" type="submit">
-                                Удалить
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-                <% } %>
+            <tbody id="books">
+                
             </tbody>
         </table>
+        <script src="/js/adminBooks.js"></script>
     </body>
 </html>
